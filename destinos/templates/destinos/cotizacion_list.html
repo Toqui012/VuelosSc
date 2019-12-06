@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+
+
+
+
+
+{%block content%}
+<section>
+    <div>
+        <h2>Listado de cotizacion</h2>
+    </div>
+</section>
+<section>
+   <div>
+       
+    {% if cotizacion_list %}
+    <ul>
+
+        {% for cotizacion in cotizacion_list %}
+        <li>
+            <a href="{{ cotizacion.get_absolute_url }}">{{cotizacion.rut}}</a>({{ cotizacion.nombre }})
+        </li>
+        {%endfor%}
+
+    </ul>
+    {%else%}
+    <p>
+        No hay cotizacion en la base de datos...
+    </p>
+    {%endif%}
+   </div>
+</section>
+
+
+{%endblock%}
